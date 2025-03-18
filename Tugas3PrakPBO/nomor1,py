@@ -1,0 +1,40 @@
+import math
+
+class Calculator:
+    def __init__(self, bilangan): 
+        self.bilangan = bilangan
+
+    def __add__(self, other): # metode untuk Penjumlahan
+        return Calculator(self.bilangan + other.bilangan)
+
+    def __sub__(self, other): # metode untuk Pengurangan
+        return Calculator(self.bilangan - other.bilangan)
+
+    def __mul__(self, other): # metode untuk Perkalian    
+        return Calculator(self.bilangan * other.bilangan)
+
+    def __truediv__(self, other): # metode untuk Pembagian
+        return Calculator(self.bilangan / other.bilangan)
+
+    def __pow__(self, other): # metode untuk Pemangkatan
+        return Calculator(self.bilangan ** other.bilangan)
+    
+    def log(self): # metode untuk Logaritma
+        return Calculator(math.log(self.bilangan))
+    
+    def __str__(self): # metode untuk menampilkan hasil
+        return str(self.bilangan)
+
+# meminta input dari pengguna
+bil1 = float(input("Masukkan angka pertama: "))
+bil2 = float(input("Masukkan angka kedua: "))
+
+num1 = Calculator(bil1)
+num2 = Calculator(bil2)
+
+print("Hasil penjumlahan:", num1 + num2)
+print("Hasil pengurangan:", num1 - num2)
+print("Hasil perkalian:", num1 * num2)
+print("Hasil pembagian:", num1 / num2)
+print("Hasil pemangkatan:", num1 ** num2)
+print("Logaritma angka pertama:", num1.log())
